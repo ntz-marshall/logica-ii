@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>Without Repeating</title>
+
+    </head>
+
+    <body>
+
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            function drawnRect(x) {
+
+                var canvas = document.querySelector('canvas');
+                var brush = canvas.getContext('2d');
+
+                brush.fillStyle = 'darkgreen';
+                brush.fillRect(x, 0, 50, 50);
+                brush.strokeStyle = 'red';
+                brush.strokeRect(x, 0, 50, 50);  
+                
+            }
+
+            drawnRect(0);
+            drawnRect(50);
+            drawnRect(100);
+
+        </script>
+
+    <body>
+    
+</html>
