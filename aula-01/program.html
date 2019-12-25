@@ -11,7 +11,7 @@
 
     <body>
 
-        <canvas width="850" height="650"></canvas>
+        <canvas width="600" height="400"></canvas>
 
         <script type="text/javascript">
 
@@ -21,8 +21,48 @@
                 E dando um contexto para o pincel funcionar
                 dando a ele um plano 2D como parâmetro para a function getContext();
             */
-            brush.fillStyle = '#3C7FB2';
-            brush.fillRect(0, 0, 850, 650);
+
+            brush.fillStyle = '#c3c3c3';
+            //define a cor da 'tinta'
+            brush.fillRect(0, 0, 600, 400);
+            //desenha um retangulo
+
+            brush.fillStyle = '#6f08c7';
+            brush.fillRect(0, 0, 200, 400);
+
+            brush.fillStyle = '#08c775';
+            brush.fillRect(400, 0, 200, 400);
+
+            brush.fillStyle = '#e5157e';
+            brush.beginPath();
+            //traça um novo caminho com o brush
+            brush.moveTo(300, 200);
+            //move o brush para um novo ponto
+            brush.lineTo(200, 400);
+            //traça uma linha até outro ponto designado
+            brush.lineTo(400, 400);
+            brush.fill();
+            //preenche o caminho traçado com o brush
+
+            brush.fillStyle = '#db8197';
+            brush.beginPath();
+            brush.moveTo(350, 250);
+            brush.lineTo(250, 450);
+            brush.lineTo(450, 450);
+            brush.fill();
+
+            brush.fillStyle = '#db8197';
+            brush.beginPath();
+            brush.moveTo(250, 250);
+            brush.lineTo(175, 400);
+            brush.lineTo(325, 400);
+            brush.fill();
+
+            brush.fillStyle = '#f0ff00';
+            brush.beginPath();
+            brush.arc(300, 200, 50, 0, 2 * 3.14);
+            // (position X, position Y, raio, ângulo inicial, ângulo final em radianos)
+            brush.fill();
 
         </script>
 
