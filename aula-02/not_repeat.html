@@ -16,21 +16,35 @@
 
         <script type="text/javascript">
 
-            function drawnRect(x) {
+            function drawnRect(x, y, color) {
 
                 var canvas = document.querySelector('canvas');
                 var brush = canvas.getContext('2d');
 
-                brush.fillStyle = 'darkgreen';
-                brush.fillRect(x, 0, 50, 50);
-                brush.strokeStyle = 'red';
-                brush.strokeRect(x, 0, 50, 50);  
+                brush.fillStyle = color;
+                brush.fillRect(x, y, 50, 50);
+                brush.strokeStyle = 'black';
+                brush.strokeRect(x, y, 50, 50);  
                 
             }
 
-            drawnRect(0);
-            drawnRect(50);
-            drawnRect(100);
+
+            for (var x = 0; x < 600; x = x + 50) {
+                drawnRect(x, 0, '#ce0fa9');
+                drawnRect(x, 50, '#2fa71d');            
+            }
+
+
+        /*
+            var x = 0;
+
+            while (x < 600) {
+
+                drawnRect(x, 0, '#ce0fa9');
+                drawnRect(x, 50, '#2fa71d');
+                x = x + 50;
+            } 
+        */
 
         </script>
 
