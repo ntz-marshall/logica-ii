@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+    </head>
+
+    <body>
+        
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            function drawnRect(x, y, color) {
+
+                var canvas = document.querySelector('canvas');
+                var brush = canvas.getContext('2d');
+
+                brush.fillStyle = color;
+                brush.fillRect(x, y, 50, 50);
+                brush.strokeStyle = 'black';
+                brush.strokeRect(x, y, 50, 50);  
+
+            }
+
+            function drawnEmptyRect(x, y) {
+
+                var canvas = document.querySelector('canvas');
+                var brush = canvas.getContext('2d');
+
+                brush.fillStyle = 'white';
+                brush.fillRect(x, y, 50, 50);
+                brush.strokeStyle = 'black';
+                brush.strokeRect(x, y, 50, 50);  
+
+            }
+
+
+            for (var x = 0; x < 200; x = x + 50) {
+                drawnRect(x, 0, '#ce0fa9');
+                drawnRect(x, 50, '#2fa71d');
+                drawnEmptyRect(200, 0);
+                drawnEmptyRect(200, 50);            
+            }
+
+        </script>
+
+    <body>
+    
+</html>
