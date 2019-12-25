@@ -15,8 +15,17 @@
 
         <script type="text/javascript">
 
+            var canvas = document.querySelector('canvas');
+            var brush = canvas.getContext('2d');
+            /*  Aqui estamos pedindo ao canvas nos dar um pincel
+                E dando um contexto para o pincel funcionar
+                dando a ele um plano 2D como parâmetro para a function getContext();
+            */
+            brush.fillStyle = '#3C7FB2';
+            brush.fillRect(0, 0, 850, 650);
+
         </script>
 
     <body>
-        
+
 </html>
