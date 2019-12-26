@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+    </head>
+
+    <body>
+
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            function text(text, x, y) {
+                
+                var canvas = document.querySelector('canvas');
+                var brush = canvas.getContext('2d');
+
+                brush.font = '20px Georgia';
+                brush.fillStyle = 'black';
+                brush.fillText(text, x, y);
+
+            }
+
+            function drawnRect(x, y, size, color) {
+
+                var canvas = document.querySelector('canvas');
+                var brush = canvas.getContext('2d');
+
+                brush.fillStyle = color;
+                brush.fillRect(x, y, 100, size);
+                brush.strokeStyle = 'black';
+                brush.strokeRect(x, y, 100, size);
+
+            }
+            function drawnGraphics(x, y, serie, color) {
+
+                drawnRect(x, y2015[0], serie2015[0], color[0]);
+                drawnRect(x, y2015[1], serie2015[1], color[1]);
+                drawnRect(x, y2015[2], serie2015[2], color[2]);
+                drawnRect(x, y2015[3], serie2015[3], color[3]);
+
+                drawnRect(x, y2016[0], serie2016[0], color[0]);
+                drawnRect(x, y2016[1], serie2016[1], color[1]);
+                drawnRect(x, y2016[2], serie2016[2], color[2]);
+                drawnRect(x, y2016[3], serie2016[3], color[3]);
+            }
+            
+            function legends() {
+
+                    //legenda 2015
+                text('50% Chrome', 10, 80);
+                text('25% Firefox', 10, 115);
+                text('20% Safari', 10, 140);
+                text('5% Outros', 10, 165);
+
+                    //legenda 2016
+                text('65% Chrome', 250, 80);
+                text('20% Firefox', 250, 115);
+                text('13% Safari', 250, 140);
+                text('2% Outros', 250, 165);
+            }
+            var color = ['blue', 'green', 'yellow', 'red'];
+            var serie2015 = [50, 25, 20, 5];
+            var serie2016 = [65, 20, 13, 2];
+            var y2015 = [50, 100, 125, 145];
+            var y2016 = [50, 115, 135, 148];
+            var x2015 = 120;
+            var x2016 = 370;
+
+            text("Este é o Gráfico da preferência de browser dos alunos da Alura: ", 50, 30);
+            
+            legends();
+            
+            drawnGraphics(x2015, y2015, serie2015, color);
+            drawnGraphics(x2016, y2016, serie2016, color);
+
+        </script>
+
+    <body>
+    
+</html>
