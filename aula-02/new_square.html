@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>FUNCTION SQUARES</title>
+
+    </head>
+
+    <body>
+
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            var canvas = document.querySelector('canvas');
+            var brush = canvas.getContext('2d');
+
+            function drawnSquare(xa, ya, xc, yc, color) {
+
+                brush.fillStyle = color;
+                brush.beginPath();
+                brush.moveTo(xa, ya);
+                brush.lineTo(xa, yc);
+                brush.lineTo(xc, yc);
+                brush.fill();
+
+            }
+
+            drawnSquare(50, 50, 400, 400, 'black');
+            drawnSquare(100, 175, 275, 350, 'white');
+
+        </script>
+
+    <body>
+
+</html>
