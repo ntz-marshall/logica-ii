@@ -16,37 +16,36 @@
 
         <script type="text/javascript">
 
-            function drawnRect(x, y, color) {
+            function text(text, x, y) {
+                
+                var canvas = document.querySelector('canvas');
+                var brush = canvas.getContext('2d');
+
+                brush.font = '20px Georgia';
+                brush.fillStyle = 'black';
+                brush.fillText(text, x, y);
+
+            }
+            
+            function drawnRect(x, y, size,color) {
 
                 var canvas = document.querySelector('canvas');
                 var brush = canvas.getContext('2d');
 
                 brush.fillStyle = color;
-                brush.fillRect(x, y, 50, 50);
+                brush.fillRect(x, y, size, size);
                 brush.strokeStyle = 'black';
-                brush.strokeRect(x, y, 50, 50);  
+                brush.strokeRect(x, y, size, size);  
 
-            }
+            }            
 
-            function drawnEmptyRect(x, y) {
+            
+            text("Qual é a fração?", 50, 30);
 
-                var canvas = document.querySelector('canvas');
-                var brush = canvas.getContext('2d');
-
-                brush.fillStyle = 'white';
-                brush.fillRect(x, y, 50, 50);
-                brush.strokeStyle = 'black';
-                brush.strokeRect(x, y, 50, 50);  
-
-            }
-
-
-            for (var x = 0; x < 200; x = x + 50) {
-                drawnRect(x, 0, '#ce0fa9');
-                drawnRect(x, 50, '#2fa71d');
-                drawnEmptyRect(200, 0);
-                drawnEmptyRect(200, 50);            
-            }
+            drawnRect(50, 50, 100, '#2fa71d');
+            drawnRect(150, 50, 100, '#2fa71d');
+            drawnRect(250, 50, 100, '#2fa71d'); 
+            drawnRect(350, 50, 100, 'white');         
 
         </script>
 
