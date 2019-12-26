@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+    </head>
+
+    <body>
+
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            function drawnRect(x, y, size, color) {
+
+                var canvas = document.querySelector('canvas');
+                var brush = canvas.getContext('2d');
+
+                brush.fillStyle = color;
+                brush.fillRect(x, y, size, size);
+                brush.strokeStyle = 'black';
+                brush.strokeRect(x, y, size, size);  
+
+                function text(x, y, text) {
+
+                    var canvas = document.querySelector('canvas');
+                    var brush = canvas.getContext('2d');
+
+                    brush.font = '15px Georgia';
+                    brush.fillStyle = 'black';
+                    brush.fillText(text, x, y);
+
+                }
+
+            }
+
+            function drawnGraphics(x, y, size, color, text) {
+                
+                drawnRect(x, y, size, color, text);
+                drawnRect(x, y, size, color, text);
+                drawnRect(x, y, size, color, text);
+                drawnRect(x, y, size, color, text);
+
+            }
+            var serie2015 = [50, 25, 20, 5];
+            var serie2016 = [65, 20, 13, 2];
+            var color = ['blue', 'green', 'yellow', 'red'];
+
+            drawnGraphics(50, 50, serie2015, color, '2015');
+            drawnGraphics(150, 50, serie2016, color, '2016');
+
+        </script>
+
+    <body>
+    
+</html>
