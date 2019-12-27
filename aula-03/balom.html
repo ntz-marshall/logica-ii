@@ -26,15 +26,17 @@
 
                 var x = event.pageX - canvas.offsetLeft;
                 var y = event.pageY - canvas.offsetTop;
-                event.shiftKey = true;
+                var raio = 10;
+                var color = 'grey';
 
-                if (event.shiftKey == false) {
+                if (event.shiftKey) {
 
-                   var raio = 10;
-                   var color = 'darkblue';
+                    color = 'darkblue';
+                    raio = 10;                   
 
                 } else {
-                    raio = 20;
+
+                    raio = raio + 20;
                     color = 'pink';
                 }
 
