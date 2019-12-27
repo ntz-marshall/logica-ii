@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+    </head>
+
+    <body>
+        
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            var canvas = document.querySelector('canvas');
+            var brush = canvas.getContext('2d');
+
+            brush.fillStyle = 'grey';
+            brush.fillRect(0, 0, 600, 400);
+
+            function showBall(event) {
+                /* ao clicar fora do canvas o event ainda considera o espaço todo,
+                e não apenas o canvas, e para corrigir isso
+                usamos .offset;
+                */
+                var x = event.pageX - canvas.offsetLeft;
+                var y = event.pageY - canvas.offsetTop;
+
+                //agora vamos desenhar bolinhas no canvas!
+                brush.fillStyle = 'blue';
+                brush.beginPath();
+                brush.arc(x, y, 10, 0, 2*Math.PI);
+                brush.fill();
+                console.log(x + ', ' + y);
+
+                console.log('Did u click me? Right on: ' + x + ', ' + y);
+            }
+
+            canvas.onclick = showBall;
+
+        </script>
+
+    <body>
+    
+</html>
