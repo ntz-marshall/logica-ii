@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+    </head>
+
+    <body>
+        
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            var canvas = document.querySelector('canvas');
+            var brush = canvas.getContext('2d');
+
+            brush.fillStyle = 'gray';
+            brush.fillRect(0, 0, 600, 400);
+            var raio = 10;
+
+            function showBall(event) {
+
+                var x = event.pageX - canvas.offsetLeft;
+                var y = event.pageY - canvas.offsetTop;
+                
+               /* info do ex
+               raio max 40
+               ctrl diminuir de 5 em 5
+               raio min 10
+               
+               */
+
+                console.log(x + ',' + y);
+
+                if (event.shiftKey && event.ctrlKey) { 
+
+                    alert("Uma tecla de cada vez!");
+
+                } else if (event.shiftKey && (raio + 10) <= 40) {
+                    
+                    raio = raio + 20;
+                    
+                } else if (event.ctrlKey && (raio - 5) >= 10) {
+
+                    raio = raio - 5;
+
+                }
+
+                brush.fillStyle = 'blue';
+                brush.beginPath();
+                brush.arc(x, y, raio, 0, 2 * 3.14);
+                brush.fill();
+
+            }
+
+            canvas.onclick = showBall;
+
+        </script>
+
+    <body>
+    
+</html>
