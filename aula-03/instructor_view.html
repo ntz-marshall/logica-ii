@@ -1,0 +1,45 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var desenha = false;
+
+    function desenhaCirculo(evento) {
+
+        if(desenha) {
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+        }
+        console.log(x + ',' + y);
+    }
+
+    tela.onmousemove = desenhaCirculo;
+    // esse comando captura a função desenhaCirculo dentro do evento onmousemove
+    // enquanto o mouse se mover sobre o canvas ele vai executar o if
+
+    function habilitaDesenhar() {
+
+        desenha = true;
+    }
+
+    function desabilitaDesenhar() {
+
+        desenha = false;
+    }
+
+    tela.onmousedown = habilitaDesenhar;
+    // com o botão do mouse pressionado, desenha = true, fazendo o if de desenhaCirculo ser verdadeiro
+
+    tela.onmouseup = desabilitaDesenhar;
+    // ao soltar o botão do mouse, desenha = false, fazendo o if de desenhaCirculo não ser executado.
+
+</script>
