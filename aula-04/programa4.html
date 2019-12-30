@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Little Animation
+        </title>
+    </head>
+    <body>
+
+        <canvas width="600" height="400"></canvas>
+
+        <script>
+            
+            var canvas = document.querySelector('canvas');
+            var brush = canvas.getContext('2d');
+            brush.fillStyle = 'white';
+            brush.fillRect(0, 0, 600, 400);
+
+            function drawnBall(x, y, radius) {
+                
+                brush.fillStyle = '#d21212';
+                brush.beginPath();
+                brush.arc(x, y, radius, 0, 2 * Math.PI);
+                brush.fill();
+
+            }
+
+            function clearCanvas() {
+                brush.clearRect(0, 0, 600, 400);
+            }
+
+            var x = 20;
+
+            var sentido = 1;
+
+            function updateCanvas() {
+                
+                clearCanvas();
+                // limpa a tela para que a animação aconteça
+                if( x > 600) {
+                    //testa se x for maior que 600 ele recebe um decremento para voltar ao início
+                    sentido = -1
+                } else if (x < 0) {
+                    // se x for menor que  0 ele incrementa a var x
+                    sentido = 1;
+                }
+
+                drawnBall(x, 20, 10);
+                x = x + sentido;
+                // var x (igual a 20) recebe um incremento ou decremento depensendo do sentido
+            }
+
+            setInterval(updateCanvas, 10);
+            // o JS chama a função a cada interalo de tempo
+        </script>
+
+    </body>
+
+</html>
