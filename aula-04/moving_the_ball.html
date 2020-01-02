@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+    </head>
+
+    <body>
+
+        <canvas width="600" height="400"></canvas>
+
+        <script type="text/javascript">
+
+            var canvas = document.querySelector('canvas');
+            var brush = canvas.getContext('2d');
+            brush.fillStyle = 'lightgray';
+            brush.fillRect(0, 0, 600, 400);
+
+            var x = 20;
+            var y = 20;
+
+            // códigos do teclado
+
+            var left = 37;
+            var up = 38;
+            var right = 39;
+            var down = 40;
+
+            // taxa de incremento
+            var taxa = 10;
+
+            function drawnBall(x, y, raio) {
+
+                brush.fillStyle = 'blue';
+                brush.beginPath();
+                brush.arc(x, y, raio, 0, 2 * Math.PI);
+                brush.fill();
+            }
+
+            function clearCanvas() {
+
+                brush.clearRect(0, 0, 600, 400);
+            }
+
+            function updateCanvas() {
+
+                clearCanvas();
+                drawnBall(x, y, 10);
+            }
+
+            setInterval(updateCanvas, 20);
+
+            function readKeyboard(evento) {
+
+                evento.keyCode = left;
+                evento.keyCode = up;
+                evento.keyCode = right;
+                evento.keyCode = down;
+
+                if (evento.keyCode == left) {
+                    x = x - taxa;
+                } else if (evento.keyCode == right) {
+                    x = x + taxa;
+                }
+
+                if (evento.keyCode == up) {
+                    y = y - taxa;
+                } else if (evento.keyCode == down) {
+                    y = y + taxa;
+                }
+                // sabemos que é através de evento.keyCode que temos acesso ao código da tecla pressionada
+                /* a taxa de atualização de x e y seja 10, isto é, toda
+                vez que teclarmos com a seta esquerda, por exemplo, precisamos
+                subtrair -10 do valor de x atual. Se teclarmos a seta direita,
+                precisamos incrementar +10 com o x atual. A mesma lógica se aplica ao eixo y. */
+            }
+
+        document.onkeydown = readKeyboard;
+
+        </script>
+
+    <body>
+    
+</html>
